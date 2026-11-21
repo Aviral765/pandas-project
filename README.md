@@ -1,4 +1,3 @@
-# pandas-project
 # Titanic Data Cleaning with Pandas
 
 A beginner data analysis project that cleans the Titanic passenger dataset using Python and pandas.
