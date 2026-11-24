@@ -1,7 +1,12 @@
+from pathlib import Path
+
 import pandas as pd
 
+
+PROJECT_DIR = Path(__file__).resolve().parent
+
 # load the csv file
-df = pd.read_csv("Titanic-Dataset.csv")
+df = pd.read_csv(PROJECT_DIR / "Titanic-Dataset.csv")
 
 print("Before cleaning:", df.shape)
 print(df.isnull().sum())
@@ -38,7 +43,7 @@ df = df[df["Pclass"].isin([1, 2, 3])]
 df = df.reset_index(drop=True)
 
 # save the clean file
-df.to_csv("cleaned_titanic.csv", index=False)
+df.to_csv(PROJECT_DIR / "cleaned_titanic.csv", index=False)
 
 print("Cleaning done!")
 print("After cleaning:", df.shape)
