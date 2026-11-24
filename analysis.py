@@ -5,11 +5,16 @@ Run pandascodefile.py first to create cleaned_titanic.csv,
 then run this file:  python analysis.py
 """
 
+from pathlib import Path
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
+PROJECT_DIR = Path(__file__).resolve().parent
+
 # load the cleaned data
-df = pd.read_csv("cleaned_titanic.csv")
+df = pd.read_csv(PROJECT_DIR / "cleaned_titanic.csv")
 
 print("Rows and columns:", df.shape)
 
@@ -44,7 +49,7 @@ plt.xlabel("")
 plt.ylim(0, 1)
 plt.xticks(rotation=0)
 plt.tight_layout()
-plt.savefig("survival_by_gender.png", dpi=150)
+plt.savefig(PROJECT_DIR / "survival_by_gender.png", dpi=150)
 plt.close()
 
 # chart 2: survival rate by class
@@ -56,7 +61,7 @@ plt.xlabel("Passenger class")
 plt.ylim(0, 1)
 plt.xticks(rotation=0)
 plt.tight_layout()
-plt.savefig("survival_by_class.png", dpi=150)
+plt.savefig(PROJECT_DIR / "survival_by_class.png", dpi=150)
 plt.close()
 
 # chart 3: age distribution of survivors vs non-survivors
@@ -68,7 +73,7 @@ plt.xlabel("Age")
 plt.ylabel("Number of passengers")
 plt.legend()
 plt.tight_layout()
-plt.savefig("age_distribution.png", dpi=150)
+plt.savefig(PROJECT_DIR / "age_distribution.png", dpi=150)
 plt.close()
 
 print("\nCharts saved: survival_by_gender.png, survival_by_class.png, age_distribution.png")
